@@ -1,58 +1,45 @@
+using System;
 using System.Collections.Generic;
 
 namespace aula05_exercicio_static.Models
 {
     public class Cliente
     {
+        public static int autoIncrement = 1;
         public List<ClienteModel> listaClientes = new List<ClienteModel>();
 
         public Cliente()
         {
-            listaClientes.Add(new ClienteModel{
-                nome = "Usuario 1",
-                cpf = "00000000000"
+            this.CreateCliente(new ClienteModel{
+                nome = "Cliente 1",
+                cpf = "11111111111"
             });
 
-            listaClientes.Add(new ClienteModel{
-                nome = "Usuario 2",
-                cpf = "1111111111"
+            this.CreateCliente(new ClienteModel{
+                nome = "Cliente 2",
+                cpf = "22222222222"
             });
 
-            listaClientes.Add(new ClienteModel{
-                nome = "Usuario 3",
-                cpf = "2222222222"
+            this.CreateCliente(new ClienteModel{
+                nome = "Cliente 3",
+                cpf = "33333333333"
             });
         }
 
         public void CreateCliente(ClienteModel clienteModelo)
         {
+            clienteModelo.id = Cliente.autoIncrement++;
             listaClientes.Add(clienteModelo);
         }
 
         public void UpdateCliente(ClienteModel clienteModelo)
         {
-            foreach(ClienteModel cliente in listaClientes)
-            {
-                if(cliente.cpf == clienteModelo.cpf)
-                {
-                    cliente.nome = clienteModelo.nome;
-                    break;
-                }
-            }
+            listaClientes.Find(cli => cli.id == clienteModelo.id).nome = clienteModelo.nome;
         }
 
-        public ClienteModel GetCliente(string cpf)
+        public ClienteModel GetCliente(int id)
         {
-            ClienteModel _cliente = null;
-
-            foreach(ClienteModel cliente in listaClientes)
-            {
-                if(cliente.cpf == cpf)
-                {
-                    _cliente = cliente;
-                    break;
-                }
-            }
+            ClienteModel _cliente = listaClientes.Find(cli => cli.id == id);
 
             return _cliente;
         }
@@ -62,16 +49,9 @@ namespace aula05_exercicio_static.Models
             return listaClientes;
         }
 
-        public void DeleteCliente(string cpf)
+        public void DeleteCliente(int id)
         {
-            foreach(ClienteModel cliente in listaClientes)
-            {
-                if(cliente.cpf == cpf)
-                {
-                    listaClientes.Remove(cliente);
-                    break;
-                }
-            }
+            listaClientes.Remove(listaClientes.Find(cli => cli.id == id));
         }
     }
 }

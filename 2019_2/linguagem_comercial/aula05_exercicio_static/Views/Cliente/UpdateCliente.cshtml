@@ -10,6 +10,8 @@
 {
     @Html.ValidationSummary(true)
 
+        @Html.HiddenFor(model => model.id)
+
         <div class="form-group col-12 col-sm-8 col-md-6 mx-auto">
             <div class="editor-label">
                 @Html.LabelFor(model => model.nome)

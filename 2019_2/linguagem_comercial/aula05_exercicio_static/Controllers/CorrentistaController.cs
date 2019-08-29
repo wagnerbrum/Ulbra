@@ -9,47 +9,47 @@ using Microsoft.AspNetCore.Http;
 
 namespace aula05_exercicio_static.Controllers
 {
-    public class ClienteController : Controller
+    public class CorrentistaController : Controller
     {
-        private static Cliente _clientes = new Cliente(); 
+        private static Correntista _correntistas = new Correntista();
 
         public IActionResult Index()
         {
-            return View(_clientes.listaClientes);
+            return View(_correntistas.listaCorrentistas);
         }
 
-        public IActionResult CreateCliente()
+        public IActionResult CreateCorrentista()
         {
             return View();
         }
 
         [HttpPost]
-        public RedirectToActionResult CreateCliente(ClienteModel _clienteModel)
+        public RedirectToActionResult CreateCorrentista(CorrentistaModel _correntistaModel)
         {
-            _clientes.CreateCliente(_clienteModel);
+            _correntistas.CreateCorrentista(_correntistaModel);
             return RedirectToAction("Index");
         }
 
-        public IActionResult UpdateCliente(int id)
+        public IActionResult UpdateCorrentista(int id)
         {
-            return View(_clientes.GetCliente(id));
+            return View(_correntistas.GetCorrentista(id));
         }
 
         [HttpPost]
-        public RedirectToActionResult UpdateCliente(ClienteModel _clienteModel)
+        public RedirectToActionResult UpdateCorrentista(CorrentistaModel _correntistaModel)
         {
-            _clientes.UpdateCliente(_clienteModel);
+            _correntistas.UpdateCorrentista(_correntistaModel);
             return RedirectToAction("Index");
         }
 
-        public IActionResult ViewCliente(int id)
+        public IActionResult ViewCorrentista(int id)
         {
-            return View(_clientes.GetCliente(id));
+            return View(_correntistas.GetCorrentista(id));
         }
 
-        public RedirectToActionResult DeleteCliente(int id)
+        public RedirectToActionResult DeleteCorrentista(int id)
         {
-            _clientes.DeleteCliente(id);
+            _correntistas.DeleteCorrentista(id);
             return RedirectToAction("Index");
         }
 
