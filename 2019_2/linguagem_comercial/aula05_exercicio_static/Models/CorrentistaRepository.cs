@@ -3,12 +3,12 @@ using System.Collections.Generic;
 
 namespace aula05_exercicio_static.Models
 {
-    public class Correntista
+    public class CorrentistaRepository
     {
         public static int autoIncrement = 1;
         public List<CorrentistaModel> listaCorrentistas = new List<CorrentistaModel>();
 
-        public Correntista()
+        public CorrentistaRepository()
         {
             this.CreateCorrentista(new CorrentistaModel{
                 nome = "Correntista 1"
@@ -25,13 +25,14 @@ namespace aula05_exercicio_static.Models
 
         public void CreateCorrentista(CorrentistaModel correntistaModelo)
         {
-            correntistaModelo.id = Correntista.autoIncrement++;
+            correntistaModelo.id = CorrentistaRepository.autoIncrement++;
             listaCorrentistas.Add(correntistaModelo);
         }
 
         public void UpdateCorrentista(CorrentistaModel correntistaModelo)
         {
-            listaCorrentistas.Find(cli => cli.id == correntistaModelo.id).nome = correntistaModelo.nome;
+            int index = listaCorrentistas.FindIndex(cor => cor.id == correntistaModelo.id);
+            listaCorrentistas[index].nome = correntistaModelo.nome;
         }
 
         public CorrentistaModel GetCorrentista(int id)

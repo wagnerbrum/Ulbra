@@ -11,13 +11,15 @@ namespace aula05_exercicio_static.Controllers
 {
     public class CorrentistaController : Controller
     {
-        private static Correntista _correntistas = new Correntista();
+        private static CorrentistaRepository _correntistas = new CorrentistaRepository();
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View(_correntistas.listaCorrentistas);
         }
 
+        [HttpGet]
         public IActionResult CreateCorrentista()
         {
             return View();
@@ -30,6 +32,7 @@ namespace aula05_exercicio_static.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public IActionResult UpdateCorrentista(int id)
         {
             return View(_correntistas.GetCorrentista(id));
@@ -42,11 +45,13 @@ namespace aula05_exercicio_static.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public IActionResult ViewCorrentista(int id)
         {
             return View(_correntistas.GetCorrentista(id));
         }
 
+        [HttpGet]
         public RedirectToActionResult DeleteCorrentista(int id)
         {
             _correntistas.DeleteCorrentista(id);

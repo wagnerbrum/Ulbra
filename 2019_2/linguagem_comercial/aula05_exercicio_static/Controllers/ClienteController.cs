@@ -11,13 +11,15 @@ namespace aula05_exercicio_static.Controllers
 {
     public class ClienteController : Controller
     {
-        private static Cliente _clientes = new Cliente(); 
+        private static ClienteRepository _clientes = new ClienteRepository(); 
 
+        [HttpGet]
         public IActionResult Index()
         {
             return View(_clientes.listaClientes);
         }
 
+        [HttpGet]
         public IActionResult CreateCliente()
         {
             return View();
@@ -30,6 +32,7 @@ namespace aula05_exercicio_static.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public IActionResult UpdateCliente(int id)
         {
             return View(_clientes.GetCliente(id));
@@ -42,11 +45,13 @@ namespace aula05_exercicio_static.Controllers
             return RedirectToAction("Index");
         }
 
+        [HttpGet]
         public IActionResult ViewCliente(int id)
         {
             return View(_clientes.GetCliente(id));
         }
 
+        [HttpGet]
         public RedirectToActionResult DeleteCliente(int id)
         {
             _clientes.DeleteCliente(id);
