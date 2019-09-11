@@ -8,9 +8,8 @@ namespace avaliacao_1.Models
         {
         }
 
-        public ContaLuzModel(int id, DateTime dataLeitura, int kwGasto, decimal valorAPagar, DateTime dataPagamento, decimal mediaConsumo)
+        public ContaLuzModel(DateTime dataLeitura, int kwGasto, decimal valorAPagar, DateTime dataPagamento, decimal mediaConsumo)
         {
-            this.id = id;
             this.dataLeitura = dataLeitura;
             this.kwGasto = kwGasto;
             this.valorAPagar = valorAPagar;

@@ -6,12 +6,36 @@ namespace avaliacao_1.Models
 {
     public class ContaLuzRepository
     {
-        public static int _autoIncrement = 0;
+        public static int _autoIncrement = 1;
         public static int count = 0;
         public List<ContaLuzModel> contasLuz = new List<ContaLuzModel>();
 
         public ContaLuzRepository()
         {
+            // DateTime dataLeitura, int kwGasto, decimal valorAPagar, DateTime dataPagamento, decimal mediaConsumo
+            this.CreateContaLuz(new ContaLuzModel(
+                new DateTime(2019, 04, 10),
+                100,
+                (decimal) 150.50,
+                new DateTime(2019, 05, 05),
+                100
+            ));
+
+            this.CreateContaLuz(new ContaLuzModel(
+                new DateTime(2019, 05, 09),
+                120,
+                (decimal) 250,
+                new DateTime(2019, 06, 06),
+                120
+            ));
+
+            this.CreateContaLuz(new ContaLuzModel(
+                new DateTime(2019, 06, 10),
+                90,
+                (decimal) 80.5,
+                new DateTime(2019, 07, 09),
+                90
+            ));
         }
 
         public void CreateContaLuz(ContaLuzModel contaLuzModelo)

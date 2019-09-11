@@ -15,6 +15,9 @@
               crossorigin="anonymous"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
     </environment>
+    
+    <link href="~/lib/fontawesome/css/all.css" rel="stylesheet">
+
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
 <body>
@@ -32,7 +35,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="ContaLuz" asp-action="Index">Conta Luz</a>
                         </li>
                     </ul>
                 </div>
@@ -40,7 +43,7 @@
         </nav>
     </header>
     <div class="container">
-        <partial name="_CookieConsentPartial" />
+        <!-- <partial name="_CookieConsentPartial" /> -->
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
