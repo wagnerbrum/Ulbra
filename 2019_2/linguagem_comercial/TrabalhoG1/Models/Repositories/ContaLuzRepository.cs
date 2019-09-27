@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.EntityFrameworkCore;
@@ -8,7 +7,7 @@ using TrabalhoG1.Models.Interfaces;
 
 namespace TrabalhoG1.Models.Repositories
 {
-    public class ContaLuzRepository : IRepository<ContaLuz>
+    public class ContaLuzRepository : IContaLuzRepository
     {
         private DataContext context;
 
@@ -22,9 +21,9 @@ namespace TrabalhoG1.Models.Repositories
             return context.ContasLuz.SingleOrDefault(x => x.id == id);
         }
 
-        public List<ContaLuz> Get()
+        public IEnumerable<ContaLuz> Get()
         {
-            return context.ContasLuz.ToList();
+            return context.ContasLuz.ToList().OrderBy(x => x.id);
         }
 
         public void Insert(ContaLuz contaLuz)
@@ -43,6 +42,16 @@ namespace TrabalhoG1.Models.Repositories
         {
             context.ContasLuz.Remove(Get(id));
             context.SaveChanges();
+        }
+
+        public ContaLuz GetMenorConsumo()
+        {
+            return Get().Any() ? Get().OrderBy(x => x.kwGasto).First() : null;
+        }
+
+        public ContaLuz GetMaiorConsumo()
+        {
+            return Get().Any() ? Get().OrderBy(x => x.kwGasto).Last() : null;
         }
     }
 }

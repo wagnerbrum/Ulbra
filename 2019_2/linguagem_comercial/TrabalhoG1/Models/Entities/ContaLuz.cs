@@ -1,4 +1,5 @@
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace TrabalhoG1.Models.Entities
 {
@@ -16,12 +17,16 @@ namespace TrabalhoG1.Models.Entities
             this.mediaConsumo = mediaConsumo;
         }
 
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DataType(DataType.Date, ErrorMessage="Data em formato inválido")]
         public DateTime dataLeitura { get; set; }
 
         public int kwGasto { get; set; }
 
         public double valorAPagar { get; set; }
 
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
+        [DataType(DataType.Date, ErrorMessage="Data em formato inválido")]
         public DateTime dataPagamento { get; set; }
 
         public double mediaConsumo { get; set; }

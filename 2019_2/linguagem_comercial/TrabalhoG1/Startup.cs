@@ -40,7 +40,7 @@ namespace TrabalhoG1
 
             services.AddDbContext<DataContext>(x => x.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddScoped<IRepository<ContaLuz>, ContaLuzRepository>();
+            services.AddScoped<IContaLuzRepository, ContaLuzRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
