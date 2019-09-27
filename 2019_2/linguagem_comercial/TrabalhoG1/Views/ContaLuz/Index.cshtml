@@ -49,5 +49,117 @@
                 </td>
             </tr>
         }
+        @if (!Model.listaContasLuz.Any())
+        {
+            <td colspan="7" class="text-center"> Nenhum registro cadastrado </td>
+        }
     </tbody>
 </table>
+
+@if (Model.listaContasLuz.Any())
+{
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <h5 class="card-header">Menor Consumo</h5>
+                <div class="card-body">
+                    <div class="form-group col-12">
+                        <div class="editor-label">
+                            Data Leitura
+                        </div>
+                        <div class="editor-field">
+                            <input type="text" value="@Model.menorConsumo.dataLeitura.ToString("dd/MM/yyyy")" class="form-control" disabled/>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12">
+                        <div class="editor-label">
+                            KW Gasto
+                        </div>
+                        <div class="editor-field">
+                            <input type="text" value="@Model.menorConsumo.kwGasto" class="form-control" disabled/>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12">
+                        <div class="editor-label">
+                            Valor a pagar
+                        </div>
+                        <div class="editor-field">
+                            <input type="text" value="R$ @Model.menorConsumo.valorAPagar" class="form-control" disabled/>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12">
+                        <div class="editor-label">
+                            Data Pagamento
+                        </div>
+                        <div class="editor-field">
+                            <input type="text" value="@Model.menorConsumo.dataPagamento.ToString("dd/MM/yyyy")" class="form-control" disabled/>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12">
+                        <div class="editor-label">
+                            Média de Consumo
+                        </div>
+                        <div class="editor-field">
+                            <input type="text" value="@Model.menorConsumo.mediaConsumo" class="form-control" disabled/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <h5 class="card-header">Maior Consumo</h5>
+                <div class="card-body">
+                    <div class="form-group col-12">
+                        <div class="editor-label">
+                            Data Leitura
+                        </div>
+                        <div class="editor-field">
+                            <input type="text" value="@Model.maiorConsumo.dataLeitura.ToString("dd/MM/yyyy")" class="form-control" disabled/>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12">
+                        <div class="editor-label">
+                            KW Gasto
+                        </div>
+                        <div class="editor-field">
+                            <input type="text" value="@Model.maiorConsumo.kwGasto" class="form-control" disabled/>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12">
+                        <div class="editor-label">
+                            Valor a pagar
+                        </div>
+                        <div class="editor-field">
+                            <input type="text" value="R$ @Model.maiorConsumo.valorAPagar" class="form-control" disabled/>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12">
+                        <div class="editor-label">
+                            Data Pagamento
+                        </div>
+                        <div class="editor-field">
+                            <input type="text" value="@Model.maiorConsumo.dataPagamento.ToString("dd/MM/yyyy")" class="form-control" disabled/>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-12">
+                        <div class="editor-label">
+                            Média de Consumo
+                        </div>
+                        <div class="editor-field">
+                            <input type="text" value="@Model.maiorConsumo.mediaConsumo" class="form-control" disabled/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
