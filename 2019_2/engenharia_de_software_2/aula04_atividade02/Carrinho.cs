@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace aula04_atividade02
 {
     public class Carrinho
